@@ -82,14 +82,16 @@ function generateReleaseChangeLog(changelogText, version)  {
     return releases[version];
 }
 for (const modPath of modPaths) {
-    // if mod does not have a .dbid then generate one
+    // if mod does not have a .dbid file then generate one
     const dbIdPath = path.join(modPath, '.dbid');
-    
-    let uuid = uuidv4().replace(/-/g, '');
-    if (!fs.existsSync(dbIdPath)) {
-        fs.writeFileSync(dbIdPath, uuid);
-    } else {
+    let uuid;
+    try {
         uuid = fs.readFileSync(dbIdPath);
+    } catch (e) {
+        if (e.code === 'ENOENT') {
+            uuid = uuidv4().replace(/-/g, '');
+            fs.writeFileSync(dbIdPath, uuid);
+        }
     }
 
     const pathToVerboseConfig = path.join(process.cwd(),`/mods/${uuid}.json`);
