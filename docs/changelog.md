@@ -15,3 +15,5 @@ Start a line with:
 - `+`   to document added features 
 - `-`   to document removed features
 - `!`   to document security information
+
+Example [CHANGELOG](/examples/CHANGELOG)
