@@ -1,0 +1,24 @@
+{
+    "tags": [],
+    "archive_links": [{
+        "name": "Github",
+        "url": "https://github.com/CCDirectLink/{{id}}/releases/download/v{{version}}/{{id}}.ccmod"
+    }],
+    "pages": [{
+        "name": "Github",
+        "url": "https://github.com/CCDirectLink/basic-mod/"
+    }],
+    "latest-version": {
+        "stable" : "1.0.0",
+        "beta": "1.0.0",
+        "dev": "1.0.0"
+    },
+    "contributors": [{
+        "name": "ac2pic",
+        "links": [{
+            "name": "Github",
+            "url": "https://github.com/ac2pic"
+        }]
+    }],
+    "release-file": ""
+}
