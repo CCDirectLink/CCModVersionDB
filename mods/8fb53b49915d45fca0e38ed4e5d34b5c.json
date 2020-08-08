@@ -45,7 +45,7 @@
         "hash" : {
             "sha256": "ed54f87d989bf7ae2f5b301ac4b36d350eba46ab366824d7afea28e46e6fffe5"
         },
-        "changelog": [{
+        "changelog": {
             "title": "CCLoader3 support",
             "added": [],
             "changed": [
@@ -59,6 +59,6 @@
             ],
             "fixes": [],
             "security": []
-        }]
+        }
     }]
 }
