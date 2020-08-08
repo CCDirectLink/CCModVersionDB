@@ -103,6 +103,7 @@ function findVersionInReleases(releases, version) {
 }
 
 async function run() {
+    const modsFile = JSON.parse(fs.readFileSync(process.cwd() + '/mods.json', 'utf8'));
     for (const modPath of modPaths) {
         // if mod does not have a .dbid file then generate one
         const dbIdPath = path.join(modPath, '.dbid');
@@ -217,9 +218,19 @@ async function run() {
             Object.assign(release, changelogData);
         } catch (e) {}
         
+        // put to explicit mods version
+        modsFile[uuid] = {
+            id: manifest.id,
+            default: "stable",
+            "lastest-version": config["latest-version"],
+            dependencies: manifest.dependencies,
+            archive_links: release.archive_links,
+            hash: release.hash
+        };
+
         fs.writeFileSync(pathToVerboseConfig, JSON.stringify(config));
     }
-    
+    fs.writeFileSync(process.cwd() + '/mods.json', JSON.stringify(modsFile));    
 }
 
 
