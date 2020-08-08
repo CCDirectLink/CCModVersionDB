@@ -1,0 +1,22 @@
+{
+  "name": "ccmodversiondb",
+  "version": "1.0.0",
+  "description": "CCModDB but with a major restructure and version tracking",
+  "main": "index.js",
+  "scripts": {
+    "generate-entry": "node scripts/generate-mod-entry.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CCDirectLink/CCModVersionDB.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CCDirectLink/CCModVersionDB/issues"
+  },
+  "homepage": "https://github.com/CCDirectLink/CCModVersionDB#readme",
+  "dependencies": {
+    "uuid": "^8.3.0"
+  }
+}
