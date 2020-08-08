@@ -6,7 +6,7 @@
     }],
     "pages": [{
         "name": "Github",
-        "url": "https://github.com/CCDirectLink/basic-mod/"
+        "url": "https://github.com/CCDirectLink/{{id}}/"
     }],
     "latest-version": {
         "stable" : "1.0.0",
