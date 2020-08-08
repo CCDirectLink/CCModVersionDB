@@ -91,24 +91,29 @@ for (const modPath of modPaths) {
         if (e.code === 'ENOENT') {
             uuid = uuidv4().replace(/-/g, '');
             fs.writeFileSync(dbIdPath, uuid);
+        } else {
+            throw e;
         }
     }
 
     const pathToVerboseConfig = path.join(process.cwd(),`/mods/${uuid}.json`);
     let config = {};
-    if (fs.existsSync(pathToVerboseConfig)) {
+    try {
         config = JSON.parse(fs.readFileSync(pathToVerboseConfig, 'utf8'));
+    } catch (e) {
+        console.error(e);
     }
 
     // grab id, name, description from mod ccmod.json file
     // and add it to generated file entry
     const manifestPath = path.join(modPath, 'ccmod.json');
 
-    if (!fs.existsSync(manifestPath)) {
-        // !Error
-        continue;
+    let manifest;
+    try {
+        manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    } catch (e) {
+        throw e;
     }
-    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 
     const release = {
         id: manifest.id,
@@ -133,7 +138,7 @@ for (const modPath of modPaths) {
     const metadataPath = path.join(modPath, 'dbmetadata.json');
 
     let metadata;
-    if (fs.existsSync(metadataPath)) {
+    try {
         metadata = JSON.parse(fs.readFileSync(metadataPath, 'utf8'));
         if (Array.isArray(metadata.tags)) {
             config.tags = metadata.tags;
@@ -152,7 +157,14 @@ for (const modPath of modPaths) {
         }
         // generate archive_links
         release.archive_links = generateArchiveLinks(metadata.archive_links, manifest);
-    }
+
+        // use "release-file" to generate ccmod hash
+        // can only do it for latest verion, assume
+        if (metadata["release-file"]) {
+            
+        }
+    } catch (e) {}
+    
 
     if (!Array.isArray(config.releases)) {
         config.releases = [];
@@ -162,19 +174,12 @@ for (const modPath of modPaths) {
 
     const changelogPath = path.join(modPath, 'CHANGELOG');
 
-    // generate release changelog from CHANGELOG
-    if (fs.existsSync(changelogPath)) {
+    try {
+        // generate release changelog from CHANGELOG
         const changelogRaw = fs.readFileSync(changelogPath, 'utf8');
         const changelogData = generateReleaseChangeLog(changelogRaw, manifest.version.replace('v', ''));
         Object.assign(release, changelogData);
-    }
-    
-    
-    // use "release-file" to generate ccmod hash
-    // can only do it for latest verion, assume
-    if (metadata && metadata["release-file"]) {
-        
-    }
+    } catch (e) {}
 
     fs.writeFileSync(pathToVerboseConfig, JSON.stringify(config));
 }
