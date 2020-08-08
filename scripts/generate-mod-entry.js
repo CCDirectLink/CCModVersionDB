@@ -10,13 +10,7 @@ const modPaths = JSON.parse(fs.readFileSync(path.join(process.cwd(),'/config/mod
 function strToLocaleObject(input) {
     if (typeof input === "string") {
         return {
-            "en_US": input,
-            "de_DE": input,
-            "fr_FR": input,
-            "zh_CN": input,
-            "zh_TW": input,
-            "ja_JP": input,
-            "ko_KR": input
+            "en_US": input
         };
     }
     return input;
