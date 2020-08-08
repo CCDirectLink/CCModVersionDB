@@ -25,3 +25,6 @@ An array of people who helped make the mod.
 ## release-file
 
 The full path to the released `.ccmod` file.
+
+
+Example can be found [here](/examples/dbmetadata.json)

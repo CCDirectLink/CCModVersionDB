@@ -16,4 +16,4 @@ Start a line with:
 - `-`   to document removed features
 - `!`   to document security information
 
-Example [CHANGELOG](/examples/CHANGELOG)
+Example can be found [here](/examples/CHANGELOG)
