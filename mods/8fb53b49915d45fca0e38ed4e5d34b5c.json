@@ -1,0 +1,64 @@
+{
+    "id": "basic-mod",
+    "name": {
+        "en_US": "",
+        "de_DE": "",
+        "fr_FR": "",
+        "zh_CN": "",
+        "zh_TW": "",
+        "ja_JP": "",
+        "ko_KR": ""
+    },
+    "description": {
+        "en_US": "",
+        "de_DE": "",
+        "fr_FR": "",
+        "zh_CN": "",
+        "zh_TW": "",
+        "ja_JP": "",
+        "ko_KR": ""
+    },
+    "pages": [{
+        "name": "Github",
+        "url": "https://github.com/CCDirectLink/basic-mod/"
+    }],
+    "contributors": [{
+        "name": "ac2pic",
+        "links": [{
+            "name": "Github",
+            "url": "https://github.com/ac2pic"
+        }]
+    }],
+    "latest-version": {
+        "stable" : "1.0.0",
+        "beta": "1.0.0",
+        "dev": "1.0.0"
+    },
+    "tags": ["ccloader3", "example-mod", "development"],
+    "releases": [{
+        "version": "1.0.0",
+        "dependencies": {},
+        "archive_links" : [{
+            "name": "Download link (Github)",
+            "url": "https://github.com/CCDirectLink/basic-mod/releases/download/v1.0.0/basic-mod.ccmod"
+        }],
+        "hash" : {
+            "sha256": "ed54f87d989bf7ae2f5b301ac4b36d350eba46ab366824d7afea28e46e6fffe5"
+        },
+        "changelog": [{
+            "title": "CCLoader3 support",
+            "added": [],
+            "changed": [
+                "Converted plugin.js to main.js",
+                "Converted package.json to ccmod.json",
+                "Renamed main method to poststart in main.js"
+            ],
+            "deprecated": [],
+            "removed": [
+                "Removed 'extends Plugin' from exported class in main.js"
+            ],
+            "fixes": [],
+            "security": []
+        }]
+    }]
+}

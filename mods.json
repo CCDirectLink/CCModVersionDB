@@ -1,0 +1,19 @@
+{
+    "8fb53b49915d45fca0e38ed4e5d34b5c": {
+        "id": "basic-mod",
+        "default": "stable",
+        "latest-versions": {
+            "stable" : "1.0.0",
+            "beta": "1.0.0",
+            "dev": "1.0.0"
+        },
+        "dependencies": {},
+        "archive_links" : [{
+            "name": "Download link (Github)",
+            "url": "https://github.com/CCDirectLink/basic-mod/releases/download/v1.0.0/basic-mod.ccmod"
+        }],
+        "hash" : {
+            "sha256": "ed54f87d989bf7ae2f5b301ac4b36d350eba46ab366824d7afea28e46e6fffe5"
+        }
+    }
+}
