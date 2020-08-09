@@ -1,22 +1,25 @@
 {
-  "name": "ccmodversiondb",
-  "version": "1.0.0",
-  "description": "CCModDB but with a major restructure and version tracking",
-  "main": "index.js",
-  "scripts": {
-    "generate-entry": "node scripts/generate-mod-entry.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CCDirectLink/CCModVersionDB.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CCDirectLink/CCModVersionDB/issues"
-  },
-  "homepage": "https://github.com/CCDirectLink/CCModVersionDB#readme",
-  "dependencies": {
-    "uuid": "^8.3.0"
-  }
+    "name": "ccmodversiondb",
+    "version": "1.0.0",
+    "description": "CCModDB but with a major restructure and version tracking",
+    "main": "index.js",
+    "scripts": {
+        "generate-mod-entry": "npm run genm-uuids && npm run genm-entries && npm run genm-alias",
+        "genm-alias": "node scripts/mod/gen-alias.js",
+        "genm-uuids": "node scripts/mod/gen-uuids.js",
+        "genm-entries": "node scripts/mod/gen-entries.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/CCDirectLink/CCModVersionDB.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/CCDirectLink/CCModVersionDB/issues"
+    },
+    "homepage": "https://github.com/CCDirectLink/CCModVersionDB#readme",
+    "dependencies": {
+        "uuid": "^8.3.0"
+    }
 }
