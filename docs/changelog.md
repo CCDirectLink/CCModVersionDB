@@ -17,3 +17,5 @@ Start a line with:
 - `!`   to document security information
 
 Example can be found [here](/examples/CHANGELOG)
+
+Information about changelogs can be found [here](https://keepachangelog.com/en/1.0.0/)
