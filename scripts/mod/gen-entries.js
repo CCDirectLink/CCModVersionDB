@@ -109,7 +109,10 @@ async function run() {
         let uuid;
         try {
             uuid = fs.readFileSync(dbIdPath);
-        } catch (e) {}
+        } catch (e) {
+            console.error(e);
+            continue;
+        }
     
         const pathToVerboseConfig = path.join(process.cwd(),`/mods/${uuid}.json`);
         let config = {};
@@ -129,12 +132,13 @@ async function run() {
         try {
             manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
         } catch (e) {
-            throw e;
+            console.error(e);
+            continue;
         }
     
         const release = {
             id: manifest.id,
-            version: manifest.version,
+            version: manifest.version || "0.0.0",
             dependencies: manifest.dependencies || {}
         };
 
@@ -186,7 +190,10 @@ async function run() {
                 if (!release.hash) {
                     release.hash = {};
                 }
-                release.hash['sha256'] = await calculateHash(metadata["release-file"]);
+                try {
+                    release.hash['sha256'] = await calculateHash(metadata["release-file"]);
+                } catch (e) {}
+                
             }
         }
     
